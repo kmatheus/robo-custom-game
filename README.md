@@ -28,7 +28,7 @@ Jogo 2D em desenvolvimento com **Python + Pygame**, onde o jogador controla um r
 
 ```bash
 # Clone o repositório
-git clone https://github.com/SEU_USUARIO/robo-custom-game.git
+git clone https://github.com/kmatheus/robo-custom-game.git
 cd robo-custom-game
 
 # Crie o ambiente virtual
