@@ -2,6 +2,8 @@ import pygame
 import sys
 import random
 
+from game import settings
+from game.game_over import mostrar_game_over
 from game.settings import *
 from game.menu import exibir_menu
 from game.player import Player
@@ -33,6 +35,7 @@ recarga = 40
 
 tiros = []
 inimigos = []
+tiros_inimigos = []
 explosoes = []
 pontos = 0
 
@@ -68,9 +71,23 @@ while game_rodando:
         tiro.update()
     tiros = [t for t in tiros if not t.is_off_screen()]
 
-    for inimigo in inimigos:
-        inimigo.update()
+    for inimigo in inimigos[:]:
+        inimigo.update(jogador.rect.centery, tiros_inimigos)
+        if inimigo.rect.colliderect(jogador.rect):
+            som_explosao.play()
+            jogador.levar_dano(20)
+            explosoes.append(Explosion(jogador.rect.inflate(0, 0), cor=settings.VERMELHO))
+            explosoes.append(Explosion(inimigo.rect.inflate(20, 20), cor=settings.LARANJA))
+            inimigos.remove(inimigo)
     inimigos = [i for i in inimigos if not i.is_off_screen()]
+
+    for tiro in tiros_inimigos[:]:
+        tiro.update()
+        if tiro.rect.colliderect(jogador.rect):
+            jogador.levar_dano(10)
+            explosoes.append(Explosion(jogador.rect.inflate(0, 0), cor=(255, 0, 0)))
+            tiros_inimigos.remove(tiro)
+    tiros_inimigos = [t for t in tiros_inimigos if not t.is_off_screen()]
 
     contador_spawn += 1
     if contador_spawn >= spawn_intervalo:
@@ -83,7 +100,7 @@ while game_rodando:
         acertou = False
         for inimigo in inimigos:
             if tiro.rect.colliderect(inimigo.rect):
-                explosoes.append(Explosion(inimigo.rect.copy()))
+                explosoes.append(Explosion(inimigo.rect.inflate(20, 20), cor=settings.LARANJA))
                 inimigos.remove(inimigo)
                 pontos += 1
                 som_explosao.play()
@@ -93,9 +110,11 @@ while game_rodando:
             novos_tiros.append(tiro)
     tiros = novos_tiros
 
-    for explosao in explosoes:
-        explosao.update()
-    explosoes = [e for e in explosoes if not e.terminou()]
+    for explosao in explosoes[:]:
+        explosao.draw(TELA)
+        if explosao.acabou():
+            explosoes.remove(explosao)
+    explosoes = [e for e in explosoes if not e.acabou()]
 
     if jogador.rect.colliderect(pilha_rect):
         jogador.recharge(recarga)
@@ -104,18 +123,29 @@ while game_rodando:
         pilha_rect = pygame.Rect(x_pilha, y_pilha, pilha_largura, pilha_altura)
 
     TELA.fill(BRANCO)
-
     jogador.draw(TELA)
     for tiro in tiros:
+        tiro.draw(TELA)
+    for tiro in tiros_inimigos:
         tiro.draw(TELA)
     for inimigo in inimigos:
         inimigo.draw(TELA)
     for explosao in explosoes:
         explosao.draw(TELA)
     pygame.draw.rect(TELA, VERDE, pilha_rect)
-    draw_hud(TELA, jogador.energy, jogador.energy_max, pontos)
+    draw_hud(TELA, jogador.energia, jogador.energia_max, jogador.vida, jogador.vida_max, pontos)
 
     pygame.display.update()
+
+    if not jogador.esta_vivo():
+        mostrar_game_over(TELA)
+        jogador = Player()
+        tiros = []
+        inimigos = []
+        explosoes = []
+        pontuacao = 0
+        tempo_ultimo_inimigo = pygame.time.get_ticks()
+
 
 pygame.quit()
 sys.exit()
