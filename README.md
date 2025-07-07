@@ -63,7 +63,7 @@ Desenvolvedor Full-Stack Python | Apaixonado por jogos, criatividade e sistemas 
 
 ## 📸 Preview
 
-\*(*adicione um gif ou imagem futuramente aqui do jogo rodando)*
+\*(*Gif ou imagem futuramente aqui do jogo rodando)*
 
 ---
 
