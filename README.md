@@ -4,15 +4,18 @@ Jogo 2D em desenvolvimento com **Python + Pygame**, onde o jogador controla um r
 
 ---
 
-## 🚀 Funcionalidades já implementadas
+## 🚀 Progresso Atual
 
-* Movimento livre do robô no cenário
-* Disparo de energia com consumo e recarga
-* Inimigos que surgem progressivamente
-* Explosões e sons ao colidir com tiros
-* Menu inicial com botões “Jogar” e “Sair”
-* Música de fundo e efeitos sonoros
-* Barra de energia e pontuação
+✅ Jogador, movimentação e tiros  
+✅ Inimigos com IA simples  
+✅ Colisões e explosões  
+✅ HUD com barra de energia e vida  
+✅ Inimigos atiram no jogador  
+✅ Efeito visual de dano no jogador  
+⬜️ Sistema de fases ou ondas  
+⬜️ Customização visual e de performance do robô  
+⬜️ Animações e efeitos sonoros  
+⬜️ Tela de menu inicial e opções
 
 ---
 
@@ -41,16 +44,6 @@ pip install -r requirements.txt
 # Pronto! Agora só executar o jogo
 python main.py
 ```
-
----
-
-## 🛠️ Planejado para as próximas versões
-
-* Inimigos com IA básica
-* Barra de vida e sistema de dano
-* Tela de Game Over e reinício
-* Fases / ondas de inimigos
-* Sistema de customização visual do robô
 
 ---
 
