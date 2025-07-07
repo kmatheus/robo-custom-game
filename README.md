@@ -36,9 +36,9 @@ python3 -m venv venv
 source venv/bin/activate
 
 # Instale as dependências
-pip install pygame
+pip install -r requirements.txt
 
-# Execute o jogo
+# Pronto! Agora só executar o jogo
 python main.py
 ```
 
