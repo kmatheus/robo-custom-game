@@ -62,6 +62,6 @@ Desenvolvedor Full-Stack Python | Apaixonado por jogos, criatividade e sistemas 
 
 ## 🧠 Inspiração
 
-Este projeto nasceu de um sonho antigo de adolescente — dar vida a um universo imaginado durante longas horas de tédio enquanto trabalhava como costureiro. Agora, com código, som e arte, estou transformando aquele sonho em realidade.
+Este projeto nasceu de um sonho antigo de adolescente — dar vida a um universo imaginado durante longas horas de monotomia enquanto trabalhava como costureiro. Agora, com código, som e arte, estou transformando aquele sonho em realidade.
 
 ---
