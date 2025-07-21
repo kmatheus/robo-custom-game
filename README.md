@@ -23,7 +23,7 @@
 
 * [Python 3.10+](https://www.python.org/)
 * [Pygame](https://www.pygame.org/news)
-* Organização modular em múltiplos arquivos
+* Modular organization in multiple files
 
 ---
 
