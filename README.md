@@ -49,8 +49,8 @@ python main.py
 
 ## 👤 Autor
 
-Kelvin Matheus
-Developer Full-Stack Python | Passionate about games, creativity and custom systems
+- Kelvin Matheus
+- Developer Full-Stack Python | Passionate about games, creativity and custom systems
 
 ---
 
