@@ -19,7 +19,7 @@
 
 ---
 
-## 📦 Technologies
+## 📦 Technologies Used
 
 * [Python 3.10+](https://www.python.org/)
 * [Pygame](https://www.pygame.org/news)
